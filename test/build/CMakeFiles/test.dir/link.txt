@@ -1,1 +1,1 @@
-/usr/bin/g++ -fPIC  -O0 -Wall -g -ggdb  -shared -Wl,-soname,libtest.so.1 -o /home/weiyanyu/learn/cpp/Elune/bin/libtest.so.1.2 CMakeFiles/test.dir/src/test.cpp.o 
+/usr/bin/g++ -fPIC  -O0 -Wall -g -ggdb  -shared -Wl,-soname,libtest.so.1 -o /home/weiyanyu/learn/cpp/Elune/bin/libtest.so.1.2 CMakeFiles/test.dir/src/test.cpp.o  -lpthread 

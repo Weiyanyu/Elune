@@ -1,17 +1,18 @@
 #include "test.h"
 #include <iostream>
+#include <signal.h>
 
 int main()
 {
-    // TestModel model;
-    TestModel::loadLibrary();
-    TestModel::foo();
-    std::cout << TestModel::getBar() << std::endl;
+    TestModel& model = TestModel::getInstance();
+    model.loadLibrary();
 
-    while (std::cin.get() != '\n') {}
-    TestModel::reloadLibrary();
-    TestModel::foo();
-    std::cout << TestModel::getBar() << std::endl;
+    while (true) {
+        model.foo();
+        std::cout << model.getBar() << std::endl;
+        model.waitFileChange();
+        model.reloadLibrary();
+    }
 
     return 0;
 }

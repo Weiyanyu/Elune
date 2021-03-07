@@ -17,9 +17,11 @@ target_include_directories(Elune INTERFACE
 )
 include_directories(./header/)
 
+find_package(Threads REQUIRED)
+  
 file(GLOB SOURCES "./src/*.cpp")
 
-add_library(test SHARED src/test.cpp)
+add_library(test SHARED src/test.cpp)  
 SET_TARGET_PROPERTIES (test PROPERTIES VERSION 1.2 SOVERSION 1)
 
-target_link_libraries(test Elune)
+target_link_libraries(test Elune Threads::Threads)

@@ -13,12 +13,13 @@ target_sources(Elune INTERFACE "${PROJECT_SOURCE_DIR}/lib/header/Elune.hpp")
 target_include_directories(Elune INTERFACE 
     "${PROJECT_SOURCE_DIR}/lib/header"
 )
+find_package(Threads REQUIRED)
 
 include_directories(./test/header/)
 
-file(GLOB SOURCES "./test/src/*.cpp")
+file(GLOB SOURCES "./test/src/*.cpp") 
 
 
 add_executable(main ${SOURCES} main.cpp)
-TARGET_LINK_LIBRARIES(main Elune ${CMAKE_DL_LIBS})
+TARGET_LINK_LIBRARIES(main Threads::Threads Elune ${CMAKE_DL_LIBS})
 
