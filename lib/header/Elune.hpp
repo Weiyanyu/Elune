@@ -65,7 +65,7 @@ private:
 
     void close()
     {
-        dlclose(loadSymbols);
+        dlclose(m_handle);
     }
 
     void reload()

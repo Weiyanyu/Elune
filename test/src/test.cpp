@@ -3,9 +3,7 @@
 
 void foo()
 {
-    std::cout << "foo()" << std::endl;
+    std::cout << "foo() version2" << std::endl;
 }
 
-
-
-int bar = 42;
+int bar = 50;

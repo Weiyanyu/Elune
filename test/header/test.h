@@ -23,10 +23,6 @@ public:
     {
         return *(getInstance().getVariable<decltype(bar)>("bar"));
     }
-    ~TestModel()
-    {
-        printf("dtor");
-    }
 protected:
     const char* getLibraryPath() const override
     {
@@ -34,10 +30,10 @@ protected:
     }
     std::vector<const char*> getSymbols() const override
     {
-        return g_exportSymbol;
+        return m_exportSymbol;
     }
 private:
-    std::vector<const char*> g_exportSymbol = {
+    std::vector<const char*> m_exportSymbol = {
         "foo",
         "bar"   
     };

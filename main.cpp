@@ -8,5 +8,10 @@ int main()
     TestModel::foo();
     std::cout << TestModel::getBar() << std::endl;
 
+    while (std::cin.get() != '\n') {}
+    TestModel::reloadLibrary();
+    TestModel::foo();
+    std::cout << TestModel::getBar() << std::endl;
+
     return 0;
 }
