@@ -7,12 +7,19 @@ set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../bin)
+
 #Bring the headers, such as Student.h into the project
 add_library(Elune INTERFACE)
 target_sources(Elune INTERFACE "${PROJECT_SOURCE_DIR}/../lib/header/Elune.hpp")
 target_include_directories(Elune INTERFACE 
     "${PROJECT_SOURCE_DIR}/../lib/header"
 )
+include_directories(./header/)
 
-add_executable(test test.cpp)
+file(GLOB SOURCES "./src/*.cpp")
+
+add_library(test SHARED src/test.cpp)
+SET_TARGET_PROPERTIES (test PROPERTIES VERSION 1.2 SOVERSION 1)
+
 target_link_libraries(test Elune)
